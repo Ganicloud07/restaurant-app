@@ -1,0 +1,26 @@
+###################  NodePort ############
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: restaurant-service
+# spec:
+#   type: NodePort
+#   selector:
+#     app: restaurant
+#   ports:
+#     - port: 80
+#       targetPort: 80
+#       nodePort: 30007
+
+###################  Loadbalancer ############
+apiVersion: v1
+kind: Service
+metadata:
+  name: restaurant-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: restaurant
+  ports:
+    - port: 80
+      targetPort: 80
